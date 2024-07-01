@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Thrifty</string>
+    <string name="vintage">Vintage Vogue Denim Jacket</string>
+    <string name="retro">Retro Chic Floral Dress</string>
+    <string name="classic">Classic Cool Leather Boots</string>
+    <string name="boho">Boho Bliss Knit Sweater</string>
+    <string name="timeless">Timeless Trend Corduroy Pants</string>
+    <string name="vintage_price">$25.00</string>
+    <string name="retro_price">$18.00</string>
+    <string name="classic_price">$35.00</string>
+    <string name="boho_price">$22.00</string>
+    <string name="timeless_price">$20.00</string>
 </resources>
