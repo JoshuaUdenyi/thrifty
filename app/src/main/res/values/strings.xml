@@ -10,4 +10,5 @@
     <string name="classic_price">$35.00</string>
     <string name="boho_price">$22.00</string>
     <string name="timeless_price">$20.00</string>
+    <string name="thrifty">Thrifty</string>
 </resources>
