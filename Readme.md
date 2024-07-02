@@ -10,7 +10,7 @@ An Android device to install the application on
 The HomePage shows a grid of products in the shop for sale
 
 ### **Images of Thrifty**
-![HomeScreen.png](..%2F..%2F..%2F..%2FDownloads%2FHomeScreen.png)
+![./HomeScreen.png](C:\Users\udeny\Downloads\HomeScreen.png)
 ![CheckOutScreen.png](..%2F..%2F..%2F..%2FDownloads%2FCheckOutScreen.png)
 ![CheckOutCompletedScreen.png](..%2F..%2F..%2F..%2FDownloads%2FCheckOutCompletedScreen.png)
 
