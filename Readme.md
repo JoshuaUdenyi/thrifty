@@ -22,8 +22,10 @@ The HomePage shows a grid of products in the shop for sale
 * Finally Click on the Run button to run app on your emulator
 
 
-Here is a link to test app: https://appetize.io/app/f27fzl3wylodm7upakl4revr3m /n
-Link to Download Apk: https://fastupload.io/be08763d7e7130ca /n
+Here is a link to test app: https://appetize.io/app/f27fzl3wylodm7upakl4revr3m
+
+Link to Download Apk: https://fastupload.io/be08763d7e7130ca 
+
 Link to Download from Alternate Google Link: https://docs.google.com/uc?export=download&id=1X-61mhKNSPwLlseybOSBHFmo0jgGtG87 /n
 
 **Thank you for checking out my App**
