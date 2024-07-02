@@ -16,36 +16,26 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun Counter(modifier: Modifier = Modifier) {
-    Row(
-        verticalAlignment = Alignment.CenterVertically,
-    ) {
-        var counter by remember {
-            mutableIntStateOf(1)
-        }
-        TextButton(
-            onClick = {
-                counter--
-            }
-        ) {
-            Text(
-                text = "-",
-            )
+fun Counter(
+    count: Int, // Current count value
+    onIncrement: () -> Unit,
+    onDecrement: () -> Unit, // Callback for decrement
+    modifier: Modifier = Modifier
+) {
+    Row {
+        TextButton(onClick = onDecrement ) {
+            Text(text = "-")
         }
         Text(
-            text = counter.toString(),
-            //style = MaterialTheme.typography.h2,
+            text = count.toString(),
+            style = MaterialTheme.typography.bodyMedium, // Use appropriate typography
             modifier = Modifier.padding(16.dp)
         )
         TextButton(
-            onClick = {
-                counter++
-            }
+            onClick = onIncrement // Call the increment callback
         ) {
-            Text(
-                text = "+",
-               // style = MaterialTheme.typography.h2
-            )
+            Text(text = "+")
         }
     }
+
 }

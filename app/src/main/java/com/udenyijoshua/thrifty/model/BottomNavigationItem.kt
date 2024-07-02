@@ -17,7 +17,7 @@ sealed class NavigationItem(
 ) : Destinations {
 
 
-    object Home : NavigationItem(
+    data object Home : NavigationItem(
         title = "Shop",
         selectedIcon = Icons.Filled.ShoppingCart,
         unselectedIcon = Icons.Outlined.ShoppingCart,
@@ -25,7 +25,7 @@ sealed class NavigationItem(
         route = "Home" // Provide the route for Home
     )
 
-    object Checkout: NavigationItem(
+    data object Checkout: NavigationItem(
         title = "Checkout",
         selectedIcon = Icons.Filled.ExitToApp,
         unselectedIcon = Icons.Outlined.ExitToApp,

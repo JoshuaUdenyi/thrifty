@@ -14,6 +14,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -22,14 +23,19 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.udenyijoshua.thrifty.R
 import com.udenyijoshua.thrifty.model.Product
 
-
 @Composable
-fun CheckoutItem( product: Product, modifier: Modifier = Modifier) {
+fun CheckoutItem(
+    product: Product,
+    count: Int,
+    onCountChange: (Product, Int) -> Unit,
+    onRemove: (Product) -> Unit,
+    modifier: Modifier = Modifier
+) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -38,8 +44,8 @@ fun CheckoutItem( product: Product, modifier: Modifier = Modifier) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(10.dp), // Add padding for better spacing
-            verticalAlignment = Alignment.CenterVertically // Vertically center items in Row
+                .padding(10.dp),
+            verticalAlignment = Alignment.CenterVertically
         ) {
             Box(
                 modifier = modifier
@@ -51,20 +57,31 @@ fun CheckoutItem( product: Product, modifier: Modifier = Modifier) {
             }
 
             Column(
-                modifier = Modifier.weight(1f), // Allow Column to take up remaining space
+                modifier = Modifier.weight(1f),
                 verticalArrangement = Arrangement.Center,
             ) {
                 Text(
-                    text = "Hello World",
+                    text = stringResource(product.productName),
                     modifier.padding(start = 16.dp)
                 )
-                CounterRow()
-            }}
+                CounterRow(
+                    product = product,
+                    count = count,
+                    onCountChange = { newCount ->
+                        if (newCount == 0) {
+                            onRemove(product)
+                        } else {
+                            onCountChange(product, newCount)
+                        }
+                    }
+                )
+            }
+        }
     }
 }
 
 @Composable
-fun GetProductImage(){
+fun GetProductImage() {
     val context = LocalContext.current
 
     val imageBitmap = remember {
@@ -72,27 +89,30 @@ fun GetProductImage(){
         bitmap.asImageBitmap()
     }
     Image(
-        bitmap =imageBitmap  ,
-        contentDescription = "Hello World",
+        bitmap = imageBitmap,
+        contentDescription = "Product Image",
         contentScale = ContentScale.FillBounds
     )
 }
 
 @Composable
-fun CounterRow(modifier: Modifier = Modifier){
+fun CounterRow(
+    product: Product,
+    count: Int,
+    onCountChange: (Int) -> Unit,
+    modifier: Modifier = Modifier
+) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
         modifier = modifier
             .fillMaxWidth()
             .padding(start = 16.dp, end = 16.dp)
-    ){
-
-        Text(text = "$149")
-        Counter()
+    ) {
+        Text(text = stringResource(product.productPrice))
+        Counter(
+            count = count,
+            onIncrement = { onCountChange(count + 1) },
+            onDecrement = { if (count > 0) onCountChange(count - 1) }
+        )
     }
-}
-
-@Composable
-@Preview
-fun CheckoutItemPreview(){
 }

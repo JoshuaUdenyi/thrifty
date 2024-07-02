@@ -12,6 +12,7 @@ import com.udenyijoshua.thrifty.screens.ProductScreen
 @Composable
 fun AppNavHost(
     navController: NavHostController,
+    onShowCheckoutBadge: () -> Unit,
     modifier : Modifier = Modifier
 ){
     NavHost(
@@ -24,7 +25,9 @@ fun AppNavHost(
         }
         composable(route = Checkout.route)
         {
-            CheckoutScreen(navController=navController)
+            CheckoutScreen(
+                navController=navController
+            )
         }
         composable(route = CheckoutCompleted.route){
             CheckOutCompletedScreen(navController=navController)

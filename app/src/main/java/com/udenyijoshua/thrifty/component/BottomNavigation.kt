@@ -1,5 +1,7 @@
 package com.udenyijoshua.thrifty.component
 
+import androidx.compose.material3.Badge
+import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -17,7 +19,10 @@ import com.udenyijoshua.thrifty.model.NavigationItem
 @Composable
 fun BottomNavigation(
     navController: NavHostController,
-    modifier: Modifier = Modifier
+    showBadge: Boolean,
+    onShowBadgeChange: (Boolean) -> Unit,
+    modifier: Modifier = Modifier,
+
 ) {
     // Observe current route to updateselectedItemIndex
     val currentRoute = currentRoute(navController)
@@ -31,14 +36,25 @@ fun BottomNavigation(
                 selected = selectedItemIndex == index,
                 onClick = {
                     navController.navigate(item.route)
+                    if (item == NavigationItem.Checkout) {
+                        onShowBadgeChange(false)
+                    }
                 },
                 label = { Text(text = item.title) },
                 icon = {
-                    Icon(imageVector = if (index == selectedItemIndex) {
-                        item.selectedIcon
-                    } else item.unselectedIcon,
-                        contentDescription = item.title
-                    )
+                    BadgedBox(
+                        badge = {
+                            if (item == NavigationItem.Checkout && showBadge) {
+                                Badge() // Show badge for Checkout if showBadge is true
+                            }
+                        }
+                    ) {
+                        Icon(
+                            imageVector = if (index == selectedItemIndex) {item.selectedIcon
+                            } else item.unselectedIcon,
+                            contentDescription = item.title
+                        )
+                    }
                 }
             )
         }
