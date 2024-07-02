@@ -10,9 +10,11 @@ An Android device to install the application on
 The HomePage shows a grid of products in the shop for sale
 
 ### **Images of Thrifty**
-![CheckOutCompletedScreen.png](CheckOutCompletedScreen.png)
-![CheckOutScreen.png](CheckOutScreen.png)
 ![HomeScreen.png](HomeScreen.png)
+![CheckOutScreen.png](CheckOutScreen.png)
+![CheckOutCompletedScreen.png](CheckOutCompletedScreen.png)
+
+
 
 ### **How to Setup**
 * Download [Android Studio](https://gradle.org/next-steps/?version=8.8&format=all) and Gradle preferable [version 8.8](https://gradle.org/next-steps/?version=8.8&format=all)
